@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Intel: Sustainability Through the Ages</title>
+  <!-- The page script switches Bootstrap styles for right-to-left languages. -->
+  <link id="bootstrap-stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons add a clear visual marker to each sustainability topic. -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -92,7 +96,7 @@
     </article>
 
     <!-- Card 6: 2020 -->
-    <article class="milestone" tabindex="0">
+    <article class="milestone" id="rise-strategy" tabindex="0">
       <img class="milestone-image" src="img/2020-rise.jpg" alt="Sustainability team visiting a semiconductor cleanroom" />
       <h2>2020</h2>
       <h3>RISE Strategy</h3>
@@ -104,7 +108,7 @@
     </article>
 
     <!-- Card 7: 2022 -->
-    <article class="milestone" tabindex="0">
+    <article class="milestone" id="net-zero-2040" tabindex="0">
       <img class="milestone-image" src="img/2022-net-zero.jpg" alt="Semiconductor campus with solar panels and green landscaping" />
       <h2>2022</h2>
       <h3>Net-Zero By 2040</h3>
@@ -116,7 +120,7 @@
     </article>
 
     <!-- Card 8: 2023 -->
-    <article class="milestone" tabindex="0">
+    <article class="milestone" id="renewable-electricity" tabindex="0">
       <img class="milestone-image" src="img/2023-renewables.jpg" alt="Wind turbines and solar panels generating renewable electricity" />
       <h2>2023</h2>
       <h3>Renewable Electricity</h3>
@@ -141,7 +145,139 @@
     </div>
   </section>
   <p class="timeline-hint">Scroll to explore the milestones.</p>
+
+  <!-- This accordion lets visitors explore each sustainability priority. -->
+  <section class="sustainability-section" aria-labelledby="sustainability-title">
+    <div class="container py-5">
+      <h2 id="sustainability-title" class="section-title">A More Sustainable Future</h2>
+      <div class="accordion priority-accordion" id="priority-accordion">
+        <div class="accordion-item">
+          <h3 class="accordion-header" id="water-heading">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#water-panel" aria-expanded="false" aria-controls="water-panel">
+              <span dir="auto"><i class="bi bi-droplet" aria-hidden="true"></i> Water Stewardship</span>
+            </button>
+          </h3>
+          <div id="water-panel" class="accordion-collapse collapse" aria-labelledby="water-heading" data-bs-parent="#priority-accordion">
+            <div class="accordion-body">
+              <p>Work toward water conservation and responsible water use across Intel operations and local communities.</p>
+              <a class="learn-more" href="#rise-strategy">Learn More <i class="bi bi-arrow-left" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header" id="climate-heading">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#climate-panel" aria-expanded="false" aria-controls="climate-panel">
+              <span dir="auto"><i class="bi bi-globe-americas" aria-hidden="true"></i> Climate Action</span>
+            </button>
+          </h3>
+          <div id="climate-panel" class="accordion-collapse collapse" aria-labelledby="climate-heading" data-bs-parent="#priority-accordion">
+            <div class="accordion-body">
+              <p>Reduce operational emissions and work toward Intel's goal of net-zero greenhouse gas emissions by 2040.</p>
+              <a class="learn-more" href="#net-zero-2040">Learn More <i class="bi bi-arrow-left" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header" id="energy-heading">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#energy-panel" aria-expanded="false" aria-controls="energy-panel">
+              <span dir="auto"><i class="bi bi-recycle" aria-hidden="true"></i> Renewable Energy</span>
+            </button>
+          </h3>
+          <div id="energy-panel" class="accordion-collapse collapse" aria-labelledby="energy-heading" data-bs-parent="#priority-accordion">
+            <div class="accordion-body">
+              <p>Expand renewable electricity use and improve the efficiency of manufacturing around the world.</p>
+              <a class="learn-more" href="#renewable-electricity">Learn More <i class="bi bi-arrow-left" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bootstrap form controls keep the newsletter signup clear on every screen. -->
+  <section class="newsletter-section" id="newsletter" aria-labelledby="newsletter-title">
+    <div class="container py-5">
+      <h2 id="newsletter-title" class="section-title">Intel Sustainability Newsletter</h2>
+      <p>Get updates on sustainability progress, goals, and new initiatives.</p>
+      <form class="newsletter-form" action="#newsletter" method="get">
+        <div class="row g-3 align-items-end">
+          <div class="col-12 col-md-8">
+            <label class="form-label" for="newsletter-email">Email address</label>
+            <input class="form-control" id="newsletter-email" name="email" type="email" placeholder="name@example.com" autocomplete="email" required />
+          </div>
+          <div class="col-12 col-md-4">
+            <button class="btn subscribe-button w-100" type="submit">Subscribe</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer links are placeholders for the related Intel policy pages. -->
+  <footer class="site-footer">
+    <div class="container py-4">
+      <div class="footer-content">
+        <p class="copyright">&copy; 2026 Intel Corporation</p>
+        <nav aria-label="Footer navigation">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#newsletter">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap's bundle enables the accordion's expand and collapse behavior. -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
+    const pageElement = document.documentElement;
+    const bootstrapStylesheet = document.querySelector("#bootstrap-stylesheet");
+    const rtlLanguageCodes = new Set(["ar", "arc", "ckb", "dv", "fa", "he", "ks", "nqo", "ps", "sd", "syr", "ug", "ur", "yi"]);
+    const rtlScriptCodes = new Set(["adlm", "arab", "hebr", "mand", "nkoo", "rohg", "syrc", "thaa"]);
+
+    function languageUsesRtl(language) {
+      const languageParts = language.toLowerCase().replace(/_/g, "-").split("-");
+      const languageCode = languageParts[0];
+      const scriptCode = languageParts.find((part) => part.length === 4);
+
+      if (scriptCode) return rtlScriptCodes.has(scriptCode);
+      return rtlLanguageCodes.has(languageCode);
+    }
+
+    function updatePageDirection(selectedLanguage = "") {
+      const pageClasses = `${pageElement.className} ${document.body.className}`;
+      const isTranslatedRtl = pageClasses.includes("translated-rtl");
+      const isTranslatedLtr = pageClasses.includes("translated-ltr");
+      const translateMenu = document.querySelector(".goog-te-combo");
+      const language = selectedLanguage || translateMenu?.value || pageElement.lang || "en";
+      const isRtl = isTranslatedRtl || (!isTranslatedLtr && languageUsesRtl(language));
+      const stylesheetUrl = isRtl
+        ? "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css"
+        : "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css";
+
+      pageElement.dir = isRtl ? "rtl" : "ltr";
+
+      if (bootstrapStylesheet.href !== stylesheetUrl) {
+        bootstrapStylesheet.href = stylesheetUrl;
+      }
+    }
+
+    const languageObserver = new MutationObserver(() => updatePageDirection());
+    languageObserver.observe(pageElement, {
+      attributes: true,
+      attributeFilter: ["class", "lang"]
+    });
+    languageObserver.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["class", "lang"]
+    });
+
+    document.addEventListener("change", (event) => {
+      if (event.target.matches(".goog-te-combo")) {
+        updatePageDirection(event.target.value);
+      }
+    });
+
     const timelineTrack = document.querySelector(".timeline-track");
     const milestoneCards = timelineTrack.querySelectorAll(".milestone");
     let lastPointerType = "mouse";
